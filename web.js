@@ -1,7 +1,8 @@
 var express = require('express');
 var fs = require('fs');
+var htmlfile = "index.html";
 
-var buf = fs.readFileSync('index.html', null, function (err, data) {
+var buf = fs.readFileSync(htmlfile, null, function (err, data) {
   if (err) throw err;
   console.log(data);
 });
@@ -14,7 +15,7 @@ app.get('/', function(request, response) {
   response.send(buf.toString('utf8'), 0, buf.length);
 });
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
